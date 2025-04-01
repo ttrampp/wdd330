@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation API Activity</title>
+    <link rel="stylesheet" href="api.css">
+</head>
+<body>
+    <h1>My Location</h1>
+    <p id="location">Click the button to get your location.</p>
+    <button type="button" onclick="getLocation()">Get Location</button>
+
+    <p class="disclosure">
+        <strong>Note:</strong> Your location may not be accurate if:
+        <ul>
+          <li>You are using a VPN or proxy</li>
+          <li>You denied location access when prompted</li>
+          <li>Your device/browser doesn't support precise geolocation</li>
+          <li>You are on a public or shared network</li>
+        </ul>
+        For best results, allow location access when prompted by your browser.
+      </p>
+
+    <iframe id="map" title="Map showing your current location" allowfullscreen></iframe>
+
+    <h2>Click on the face to change it's mood.</h2>
+    <canvas id="faceCanvas" width="200" height="200"></canvas>
+
+    <script src="api.js"></script>
+
+</body>
+</html>

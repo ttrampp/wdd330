@@ -1,0 +1,54 @@
+body {
+    text-align: center;
+    margin-top: 50px;
+    background-color: aqua;
+}
+
+h1 {
+    color: black;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: brown;
+    color: white;
+}
+
+#map {
+    width: 400px;
+    height: 300px;
+    border: 0;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.disclosure {
+    font-size: 1rem;
+    font-weight: bolder;
+    color: red;
+    background-color: whitesmoke;
+    padding: 10px;
+    border-left: 4px solid orange;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 5px;
+}
+.disclosure ul {
+    margin: 5px 0 0 20px;
+    padding: 0;
+}
+
+#faceCanvas {
+    border: 2px solid black;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+}

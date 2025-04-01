@@ -1,0 +1,41 @@
+/*Center the box on the page*/
+body {
+    display: flex;
+    align-items: center;            /*Center vertically*/
+    justify-content: center;        /*Center horizontally*/
+    height: 100vh;
+    margin: 0;
+}
+
+/*Style the box*/
+.box {
+    width: 150px;
+    height: 150px;
+    background-color: coral;
+    color: white;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 26px;
+    box-shadow: 2px 2px 10px darkslategrey;
+    animation: myanima 4s infinite alternate;
+}
+
+@keyframes myanima {
+    0% {
+        transform: scale(1) rotate(0deg);
+        background-color: coral;
+        color: white;
+    }    
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        background-color: dodgerblue;
+        color: yellow;
+    }
+    100% {
+        transform: scale(0.8) rotate(360deg);
+        background-color: mediumspringgreen;
+        color: black;
+    }
+}

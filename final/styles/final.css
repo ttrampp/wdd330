@@ -1,0 +1,314 @@
+/*COLOR PALETTE*/
+:root {
+    --color-one: #65524D;       /*Wenge*/
+    --color-two: #817E9F;       /*Cool Gray*/
+    --color-three: #7FC29B;     /*Cambridge Blue*/
+    --color-four: #B5EF8A;      /*Light Green*/
+    --color-five: #D7F171;      /*Mindaro*/
+}
+
+/*Basic Reset*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-four);
+    color: black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+
+    height: 100%;
+}
+
+
+header h1 {
+    margin: 0.5 0;
+    font-size: 2rem;
+    color: black;
+    text-align: center;
+    background-color: var(--color-four);
+    padding: 10px;
+    border: 5px solid black;
+    border-radius: 8px;
+}
+
+.submessage {
+    font-size: 1.3rem;
+    color: var(--color-one);
+    background-color: var(--color-four);
+    padding: 5px;
+    border: 3px solid black;
+    border-radius: 8px;
+    text-align: center;
+}
+
+main {
+    padding: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.icon-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.icon-grid-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--color-three);
+    border: 6px solid var(--color-two);
+    padding: 8px;
+    width: 150px;
+}
+
+.icon-grid-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--color-three);
+    border: 6px solid var(--color-two);
+    padding: 8px;
+    width: 150px;
+}
+
+.icon-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.icon-label {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: black;   
+    font-weight: bold;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button img {
+    width: 100px;
+    height: 100px;
+}
+
+#modal-container {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.modal {
+    display: none;              /*display:block will only be applied when the button is clicked, via .js*/
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   /*perfect centering*/
+    border-radius: 2rem;
+    width: 90%;
+    max-width: 808px;
+    height: 74%;
+    overflow-y: auto;
+    background: var(--color-two);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 2rem;
+    width: 74%;
+    text-align: center;
+    animation: fadeInUp 0.3s ease-out;
+    border-radius: 2rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    border: none;
+    font-size: 2.6rem;
+    color: black;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.3);
+    color: red;
+}
+
+@keyframes flyToCenter {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(var(--move-x), var(--move-y), 0) scale(1.5) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.animate-fly-center {
+    animation: flyToCenter 0.4s ease-out forwards;
+    z-index: 9999;          /*makes sure it is above everything temporarily*/
+    position: absolute !important;
+}
+
+/*FOOTER*/
+
+footer {
+    margin-top: 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-one);
+    background-color: white;
+}
+
+/*WORD*/
+#play-audio {
+    background-color: var(--color-four);
+}
+
+/*MEMORY MATCH*/
+.game-board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    width: 100px;
+    height: 140px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--color-three);
+    border: 2px solid var(--color-one);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.card.flipped {
+    border-color: var(--color-four);
+    transform: scale(1.05);
+}
+
+/*BACKGROUND IMAGES*/
+body {
+    background-size: cover;         /*Stretch image to fill the screen*/
+    background-repeat: no-repeat;   /*Prevent tiling*/
+    background-position: center;    /*Centers image*/
+}
+
+.background-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.bg-thumbnail {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.bg-thumbnail:hover {
+    transform: scale(1.8);
+    border-color: black;
+}
+
+.upload-section {
+    margin-top: 1rem;
+    text-align: center;
+    background-color: var(--color-four);
+}
+
+.upload-section input[type="file"] {
+    margin-top: 0.5rem;
+}
+
+#upload-message {
+    display: none;
+    color: var(--color-three);
+    text-align: center;
+}
+
+#upload-bg::-webkit-file-upload-button {
+    background-color: var(--color-two);
+}
+
+#reset-bg {
+    display: block;
+    margin: 1.5rem auto 0;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-three);
+}
+
+/*TABLET*/
+@media (max-width: 900px) {
+
+    main {
+        flex-direction: column;
+    }
+
+    .icon-grid-left, .icon-grid-right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+
+/*MOBILE*/
+@media (max-width: 600px) {
+
+    .icon-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    button img {
+        width: 48px;
+        height: 48px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}

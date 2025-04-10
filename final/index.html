@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Start Your Day Your Way - A personalized digitial dashboard to start your day with inspiration, info, and fun.">
+    <title>Start Your Day Your Way</title>
+    <link rel="stylesheet" href="styles/final.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script type="module" src="scripts/main.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Start Your Day Your Way!</h1>
+        
+    </header>
+
+    <main>
+        <div class="icon-wrapper">
+            <div class="icon-grid-left">
+                <div class="icon-button">
+                    <button type="button" id="weather-btn" aria-label="Weather">
+                        <img src="images/black-sun-with-rays.svg" alt="Weather Icon">
+                    </button>
+                    <p class="icon-label">Weather</p>
+                </div>
+                <div class="icon-button">
+                    <button type="button" id="word-btn" aria-label="Learn a new Word">
+                        <img src="images/abc.svg" alt="Word Icon">
+                    </button>
+                    <p class="icon-label">A New Word</p>
+                </div>
+                <div class="icon-button">
+                    <button type="button" id="scripture-btn" aria-label="Daily Scripture">
+                        <img src="images/bible.svg" alt="Scripture Icon">
+                    </button>
+                    <p class="icon-label">Scripture</p>
+                </div>
+                <div class="icon-button">
+                    <button type="button" id="news-btn" aria-label="News">
+                        <img src="images/rolled-up-newspaper.svg" alt="News Icon">
+                    </button>
+                    <p class="icon-label">News</p>
+                </div>
+                
+            </div>
+            <div class="icon-grid-right">
+                <div class="icon-button">
+                    <button type="button" id="recipe-btn" aria-label="Recipe of the Day">
+                        <img src="images/boiling-cook-cooking-food-hot.svg" alt="Recipe Icon">
+                    </button>
+                    <p class="icon-label">Recipe</p>
+                </div>
+                <div class="icon-button">
+                    <button type="button" id="trivia-btn" aria-label="Trivia Game">
+                        <img src="images/question.svg" alt="Trivia Icon">
+                    </button>
+                    <p class="icon-label">Trivia Game</p>
+                </div>
+                <div class="icon-button">
+                    <button type="button" id="memory-btn" aria-label="Memory Game">
+                        <img src="images/card-shapes.svg" alt="Memory Icon">
+                    </button>
+                    <p class="icon-label">Memory Game</p>
+                </div>
+                <div class="icon-button">
+                    <button type="button" id="background-btn" aria-label="Background Settings">
+                        <img src="images/photo.svg" alt="Background Photo Icon">
+                    </button>
+                    <p class="icon-label">Background</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-container">
+
+            <div id="weather-modal" class="modal">   <!--Background overlay-->
+                <div class="modal-content">                 <!--Centered content box-->
+                    <button type="button" class="close-btn" aria-label="Close Popup Modal">&times;</button>
+                    <div class="weather-container">         <!--Actual content box-->
+                        <h2>Weather</h2>
+                        <p>The current temperature in Kirtland, NM, USA is <span id="current-temp"></span></p>
+                        <figure>
+                            <img id="weather-icon" src="images/icon.png" alt="Weather Icon" loading="lazy"
+                                width="50" height="50">
+                            <figcaption>weather icon</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <div id="word-modal" class="modal">  
+                <div class="modal-content">                 
+                    <button type="button" class="close-btn" aria-label="Close Popup Modal">&times;</button>
+                    <div class="word-container">         
+                        <h2>Learn a New Word Today</h2>
+                        <p><strong>Word: </strong> <span id="word"></span></p>
+                        <p><strong>Definition: </strong> <span id="definition"></span></p>
+                        <p><strong>Part of Speech: </strong> <span id="part-of-speech"></span></p>
+                        <p><button type="button" id="play-audio">🔈Play pronunciation</button></p>
+                        <audio id="pronunciation-audio"></audio>
+                        <br><p>Note: Not all words have definitions or parts of speech available.</p>
+                        <p>Please try for another word.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic modals will be injected here-->
+            <div id="scripture-modal" class="modal">
+                <div class="modal-content">
+                    <button type="button" class="close-btn" aria-label="Close Popup Modal">&times;</button>
+                    <h2>Here's a Scripture to Ponder</h2>
+                    <p id="scripture">Loading scripture...</p>
+                </div>
+            </div>
+
+            <div id="news-modal" class="modal">
+                <div class="modal-content">
+                    <button type="button" class="close-btn" aria-label="Close Popup Modal">&times;</button>
+                    <h2>It's good to be informed. What does the news show us today?</h2>
+                    <p id="news">Loading News...</p>
+                </div>
+            </div>
+
+            <div id="recipe-modal" class="modal">
+                <div class="modal-content">
+                    <button type="button" class="close-btn" aria-label="Close Popup Modal">&times;</button>
+                    <h2>Let's try a new recipe, shall we?</h2>
+                    <p id="recipe">Loading Recipe...</p>
+                </div>
+            </div>
+
+            <div id="trivia-modal" class="modal">
+                <div class="modal-content">
+                    <button type="button" class="close-btn" aria-label="Close Popup Modal">&times;</button>
+                    <h2>Are you up for a bit of trivia?</h2>
+                    <label for="trivia-difficulty">Select Difficulty:</label>
+                    <select id="trivia-difficulty" name="trivia-difficulty">
+                        <option value="">Any Difficulty</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                    <button onclick="fetchTrivia()">Get New Question</button>
+                    <p id="trivia">Loading Trivia...</p>
+                </div>
+            </div>
+
+            <div id="memory-modal" class="modal">
+                <div class="modal-content">
+                    <button type="button" class="close-btn" aria-label="Close Popup Modal">&times;</button>
+                    <h2>A good game of memory cards is great for the brain!</h2>
+                    <div id="board" class="game-board"></div>
+                    <p id="memory">Loading Memory Game...</p>
+                </div>
+            </div>
+
+            <div id="background-modal" class="modal">
+                <div class="modal-content">
+                    <button type="button" class="close-btn" aria-label="Background Modal">&times;</button>
+                    <h2>How about changing your background.</h2>
+                    <div class="background-options">
+                        <!--js will dynamically insert thumbnails here-->
+                    </div>
+                </div>
+
+                <div class="upload-section">
+                    <label for="upload-bg">Upload your own image:</label>
+                    <input type="file" id="upload-bg" accept="image/*">
+                </div>
+
+                <p id="upload-message">Image uploaded! You can close this window now.</p>
+
+                <button type="button" id="reset-bg">Reset to Default</button>
+            </div>
+
+            
+        </div>
+
+        <p class="submessage">What do you want to see first?
+            <br>Click on an icon and enjoy!
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Start Your Day Your Way</p>
+    </footer>
+
+</body>
+</html>

@@ -6,7 +6,7 @@ function decodeHTML(str) {
     return txt.value;
 }
 
-async function fetchTrivia() {
+export async function fetchTrivia() {
     try {
         const response = await fetch(triviaUrl);
         const data = await response.json();
@@ -45,7 +45,3 @@ async function fetchTrivia() {
         document.getElementById("trivia").textContent = "Unable to load trivia."
     }
 }
-
-
-
-fetchTrivia();

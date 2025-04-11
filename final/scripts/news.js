@@ -1,6 +1,6 @@
 const newsUrl = "https://api.rss2json.com/v1/api.json?rss_url=https://www.npr.org/rss/rss.php?id=1001";
 
-async function fetchNews() {
+export async function fetchNews() {
     try {
         const response = await fetch(newsUrl);
         const data = await response.json();
@@ -24,5 +24,3 @@ async function fetchNews() {
         document.getElementById("news").textContent = "Unable to load news."
     }
 }
-
-fetchNews();

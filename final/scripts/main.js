@@ -1,18 +1,18 @@
-import "./weather.js";
-import "./word.js";
-import "./scripture.js";
-import "./news.js";
-import "./recipe.js";
-import "./trivia.js";
-import "./memoryGame.js";
+import {fetchWeather} from "./weather.js";
+import {fetchWordOfTheDay} from "./word.js";
+import {fetchScripture} from "./scripture.js";
+import {fetchNews} from "./news.js";
+import {fetchRecipe} from "./recipe.js";
+import {fetchTrivia} from "./trivia.js";
+import {startGame} from "./memoryGame.js";
 import "./background.js";
 
 /*WEATHER API*/
-function initWeatherModal() {
+/*function initWeatherModal() {
     document.getElementById("weather-btn").addEventListener("click", () => {
         document.getElementById("weather-modal").style.display = "block";
     });
-}
+}*/
 
 
 /*WORD API*/
@@ -98,7 +98,7 @@ function initModalCloseOutside() {
 
 /*ADDED ANIMATION FOR MODAL BUTTONS FOR A STRETCH*/
 /*CLONE THE ICON, ANIMATE IT, REMOVE IT AFTER IT ENDS, THEN SHOW MODAL*/
-function animateButtonToCenter(buttonId, modalId) {
+function animateButtonToCenter(buttonId, modalId, callback) {
     const btn = document.getElementById(buttonId);
     const modal = document.getElementById(modalId);
 
@@ -143,7 +143,9 @@ function animateButtonToCenter(buttonId, modalId) {
         clone.addEventListener("animationend", () => {
             clone.remove();
             modal.style.display = "block";
-
+            if (typeof callback === "function") {
+                callback();             //API call happens here
+            }
         });
     });
 }
@@ -161,11 +163,11 @@ initBackgroundModal();*/
 initModalCloseWithX();
 initModalCloseOutside();
 
-animateButtonToCenter("weather-btn", "weather-modal");
-animateButtonToCenter("word-btn", "word-modal");
-animateButtonToCenter("scripture-btn", "scripture-modal");
-animateButtonToCenter("news-btn", "news-modal");
-animateButtonToCenter("recipe-btn", "recipe-modal");
-animateButtonToCenter("trivia-btn", "trivia-modal");
-animateButtonToCenter("memory-btn", "memory-modal");
+animateButtonToCenter("weather-btn", "weather-modal", fetchWeather);
+animateButtonToCenter("word-btn", "word-modal", fetchWordOfTheDay);
+animateButtonToCenter("scripture-btn", "scripture-modal", fetchScripture);
+animateButtonToCenter("news-btn", "news-modal", fetchNews);
+animateButtonToCenter("recipe-btn", "recipe-modal", fetchRecipe);
+animateButtonToCenter("trivia-btn", "trivia-modal", fetchTrivia);
+animateButtonToCenter("memory-btn", "memory-modal", startGame);
 animateButtonToCenter("background-btn", "background-modal");

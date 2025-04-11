@@ -8,7 +8,7 @@ let flippedCards = [];
 let matchedCards = [];
 
 //function to start the game
-async function startGame() {
+export async function startGame() {
     try {
     //fetch a new shuffled deck of cards
     const deckRes = await fetch(memoryUrl)

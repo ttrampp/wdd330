@@ -1,6 +1,6 @@
 const wordUrl = "https://random-word-api.herokuapp.com/word?number=1";
 
-async function fetchWordOfTheDay() {
+export async function fetchWordOfTheDay() {
     try {
         const response = await fetch(wordUrl);
         const data = await response.json();
@@ -58,5 +58,3 @@ async function fetchWordOfTheDay() {
         document.getElementById("part-of-speech").textContent = "N/A";
     }
 }
-
-fetchWordOfTheDay();

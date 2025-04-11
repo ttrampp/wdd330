@@ -1,7 +1,7 @@
 const scriptureUrl = "https://book-of-mormon-api.vercel.app/random";
 
 
-async function fetchScripture() {
+export async function fetchScripture() {
     try {
         const response = await fetch(scriptureUrl);
         const data = await response.json();
@@ -16,5 +16,3 @@ async function fetchScripture() {
         document.getElementById("scripture").textContent = "Unable to load scripture."
     }
 }
-
-fetchScripture();

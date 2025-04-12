@@ -168,6 +168,16 @@ animateButtonToCenter("word-btn", "word-modal", fetchWordOfTheDay);
 animateButtonToCenter("scripture-btn", "scripture-modal", fetchScripture);
 animateButtonToCenter("news-btn", "news-modal", fetchNews);
 animateButtonToCenter("recipe-btn", "recipe-modal", fetchRecipe);
-animateButtonToCenter("trivia-btn", "trivia-modal", fetchTrivia);
+animateButtonToCenter("trivia-btn", "trivia-modal", () => {
+    fetchTrivia();    
+    const triviaBtn = document.getElementById("new-trivia");
+    if (triviaBtn) {
+        triviaBtn.addEventListener("click", fetchTrivia);
+    }
+}); //for get new question in Trivia Game
+
 animateButtonToCenter("memory-btn", "memory-modal", startGame);
 animateButtonToCenter("background-btn", "background-modal");
+
+
+

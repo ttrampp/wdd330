@@ -7,9 +7,20 @@ const board = document.getElementById("board");
 let flippedCards = [];
 let matchedCards = [];
 
+//hide Play Again button at the start of a game
+function hidePlayAgainButton() {
+    const playAgainBtn = document.getElementById("play-again-btn");
+    if (playAgainBtn) {
+        playAgainBtn.style.display = "none";
+    }
+}
+
 //function to start the game
 export async function startGame() {
     try {
+
+    hidePlayAgainButton();      //hides the button on every new game start
+
     //fetch a new shuffled deck of cards
     const deckRes = await fetch(memoryUrl)
     const deckData = await deckRes.json();
@@ -100,7 +111,8 @@ function handleFlip(cardBox, imageUrl) {
             if (matchedCards.length === 6) {
                 console.log("All matches found.")
                 setTimeout(() => {
-                    alert("🎉🎊FANTASTIC! YOU WON!🎊🎉")
+                    alert("🎉🎊FANTASTIC! YOU WON!🎊🎉");
+                    showPlayAgainButton();
                 }, 300);
             }
 
@@ -114,5 +126,20 @@ function handleFlip(cardBox, imageUrl) {
                 flippedCards = [];
             }, 800);
         }
+    }
+}
+
+//show the play again button when the game is won
+function showPlayAgainButton() {
+    const playAgainBtn = document.getElementById("play-again-btn");
+    if(playAgainBtn) {
+        playAgainBtn.style.display = "inline-block";
+        playAgainBtn.addEventListener("click", () => {
+            //reset game state
+            flippedCards = [];
+            matchedCards = [];
+            playAgainBtn.style.display = "none";
+            startGame();    //start a new game
+        });
     }
 }

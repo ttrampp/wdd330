@@ -7,63 +7,6 @@ import {fetchTrivia} from "./trivia.js";
 import {startGame} from "./memoryGame.js";
 import "./background.js";
 
-/*WEATHER API*/
-/*function initWeatherModal() {
-    document.getElementById("weather-btn").addEventListener("click", () => {
-        document.getElementById("weather-modal").style.display = "block";
-    });
-}*/
-
-
-/*WORD API*/
-/*function initWordModal() {
-    document.getElementById("word-btn").addEventListener("click", () => {
-        document.getElementById("word-modal").style.display = "block";
-    });
-}*/
-
-/*SCRIPTURE API*/
-/*function initScriptureModal() {
-    document.getElementById("scripture-btn").addEventListener("click", () => {
-        document.getElementById("scripture-modal").style.display = "block";
-    });
-}*/
-
-/*NEWS API*/
-/*function initNewsModal() {
-    document.getElementById("news-btn").addEventListener("click", () => {
-        document.getElementById("news-modal").style.display = "block";
-    });
-}*/
-
-/*RECIPE API*/
-/*function initRecipeModal() {
-    document.getElementById("recipe-btn").addEventListener("click", () => {
-        document.getElementById("recipe-modal").style.display = "block";
-    });
-}*/
-
-/*TRIVIA API*/
-/*function initTriviaModal() {
-    document.getElementById("trivia-btn").addEventListener("click", () => {
-        document.getElementById("trivia-modal").style.display = "block";
-    });
-}*/
-
-/*MEMORY MATCHING API*/
-/*function initMemoryModal() {
-    document.getElementById("memory-btn").addEventListener("click", () => {
-        document.getElementById("memory-modal").style.display = "block";
-        startGame();
-    });
-}*/
-
-/*BACKGROUND SELECTOR*/
-/*function initBackgroundModal() {
-    document.getElementById("background-btn").addEventListener("click", () => {
-        document.getElementById("background-modal").style.display = "block";
-    });
-}*/
 
 /*CLOSE MODAL BUTTON -- CLICKING ON X*/
 function initModalCloseWithX() {
@@ -150,16 +93,6 @@ function animateButtonToCenter(buttonId, modalId, callback) {
     });
 }
 
-
-/*INITIALIZE-CALL EVERYTHING*/
-/*initWeatherModal();
-initWordModal();
-initScriptureModal();
-initNewsModal();
-initRecipeModal();
-initTriviaModal();
-initMemoryModal();
-initBackgroundModal();*/
 initModalCloseWithX();
 initModalCloseOutside();
 

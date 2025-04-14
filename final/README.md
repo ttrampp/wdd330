@@ -65,3 +65,5 @@ Go to site URL : https://ttrampp.github.io/wdd330/final/index.html.
 Click on any of the icon buttons shown in either of the two columns.
 Follow the directions if applicable.
 
+Here you will see a video demonstration of how the site works:
+https://www.loom.com/share/7bb2c02be7af4787818841f46a289bc4 

@@ -63,5 +63,5 @@ This web application offers a modular dashboard with interactive pop-ups, animat
 
 Go to site URL : https://ttrampp.github.io/wdd330/final/index.html. 
 Click on any of the icon buttons shown in either of the two columns.
-
+Follow the directions if applicable.
 

@@ -12,7 +12,7 @@ export function setupFooterAndNavbar() {
 }
 
 import {fetchWeather} from "./weather.js";
-import {fetchWordOfTheDay} from "./word.js";
+import {fetchNewWord} from "./word.js";
 import {fetchScripture} from "./scripture.js";
 import {fetchNews} from "./news.js";
 import {fetchRecipe} from "./recipe.js";
@@ -110,7 +110,7 @@ initModalCloseWithX();
 initModalCloseOutside();
 
 animateButtonToCenter("weather-btn", "weather-modal", fetchWeather);
-animateButtonToCenter("word-btn", "word-modal", fetchWordOfTheDay);
+animateButtonToCenter("word-btn", "word-modal", fetchNewWord);
 animateButtonToCenter("scripture-btn", "scripture-modal", fetchScripture);
 animateButtonToCenter("news-btn", "news-modal", fetchNews);
 animateButtonToCenter("recipe-btn", "recipe-modal", fetchRecipe);

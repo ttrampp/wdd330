@@ -1,6 +1,6 @@
 const wordUrl = "https://random-word-api.herokuapp.com/word?number=1";
 
-export async function fetchWordOfTheDay() {
+export async function fetchNewWord() {
 
     word.textContent = "Loading Word...";
 

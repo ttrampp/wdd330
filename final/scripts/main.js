@@ -1,4 +1,4 @@
-// Set the current year in the footer
+//Display the current year in the footer
 export function setupFooterAndNavbar() {
     const currentYear = new Date().getFullYear();
     document.getElementById('currentyear').textContent = currentYear;
@@ -11,6 +11,9 @@ export function setupFooterAndNavbar() {
     });
 }
 
+//module imports
+
+//imports api functions and background logic for each modal
 import {fetchWeather} from "./weather.js";
 import {fetchNewWord} from "./word.js";
 import {fetchScripture} from "./scripture.js";
@@ -29,6 +32,7 @@ function initModalCloseWithX() {
             if (modal) {
                 modal.style.display = "none";                       /*modal is hidden*/
 
+                //hide upload message when closing
                 const message = document.getElementById("upload-message");
                 if (message) {
                     message.style.display = "none";
@@ -106,19 +110,24 @@ function animateButtonToCenter(buttonId, modalId, callback) {
     });
 }
 
+//initialize modal logic
 initModalCloseWithX();
 initModalCloseOutside();
 
+//attach modal triggers with animations and callbacks for API calls
 animateButtonToCenter("weather-btn", "weather-modal", fetchWeather);
 animateButtonToCenter("word-btn", "word-modal", fetchNewWord);
 animateButtonToCenter("scripture-btn", "scripture-modal", fetchScripture);
 animateButtonToCenter("news-btn", "news-modal", fetchNews);
 animateButtonToCenter("recipe-btn", "recipe-modal", fetchRecipe);
+
+//special handling for trivia game--difficulty selection logic
 animateButtonToCenter("trivia-btn", "trivia-modal", () => {   
     const triviaBtn = document.getElementById("new-trivia");
     if (triviaBtn) {
         triviaBtn.textContent = "Begin";
 
+        //replace old click handlers to prevent duplicate bindings
         triviaBtn.replaceWith(triviaBtn.cloneNode(true));
         const newBtn = document.getElementById("new-trivia");
 

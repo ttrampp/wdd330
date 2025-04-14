@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--Meta and page setup-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Start Your Day Your Way - A personalized digitial dashboard to start your day with inspiration, info, and fun.">
     <title>Start Your Day Your Way</title>
+
+    <!--Styles and fonts-->
     <link rel="stylesheet" href="styles/final.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!--Main script-->
     <script type="module" src="scripts/main.js"></script>
 </head>
 <body>
@@ -19,7 +24,9 @@
     </header>
 
     <main>
+        <!--Grid icon layout for all modules-->
         <div class="icon-wrapper">
+            <!--Left icon column-->
             <div class="icon-grid-left">
                 <div class="icon-button">
                     <button type="button" id="weather-btn" aria-label="Weather">
@@ -47,6 +54,8 @@
                 </div>
                 
             </div>
+
+            <!--Right icon column-->
             <div class="icon-grid-right">
                 <div class="icon-button">
                     <button type="button" id="recipe-btn" aria-label="Recipe of the Day">
@@ -75,8 +84,9 @@
             </div>
         </div>
 
+        <!--Modals for each icon popup-->
         <div id="modal-container">
-
+            <!--Weather modal-->
             <div id="weather-modal" class="modal">   <!--Background overlay-->
                 <div class="modal-content">                 <!--Centered content box-->
                     <button type="button" class="close-btn" aria-label="Close Popup Modal">&times;</button>
@@ -95,6 +105,7 @@
                 </div>
             </div>
 
+            <!--Word modal-->
             <div id="word-modal" class="modal">  
                 <div class="modal-content">                 
                     <button type="button" class="close-btn" aria-label="Close Popup Modal">&times;</button>
@@ -109,7 +120,7 @@
                 </div>
             </div>
 
-            <!-- Dynamic modals will be injected here-->
+            <!--Scripture modal-->
             <div id="scripture-modal" class="modal">
                 <div class="modal-content">
                     <button type="button" class="close-btn" aria-label="Close Popup Modal">&times;</button>
@@ -123,6 +134,7 @@
                 </div>
             </div>
 
+            <!--News modal-->
             <div id="news-modal" class="modal">
                 <div class="modal-content">
                     <button type="button" class="close-btn" aria-label="Close Popup Modal">&times;</button>
@@ -132,6 +144,7 @@
                 </div>
             </div>
 
+            <!--Recipe modal-->
             <div id="recipe-modal" class="modal">
                 <div class="modal-content">
                     <button type="button" class="close-btn" aria-label="Close Popup Modal">&times;</button>
@@ -141,6 +154,7 @@
                 </div>
             </div>
 
+            <!--Trivia modal-->
             <div id="trivia-modal" class="modal">
                 <div class="modal-content">
                     <button type="button" class="close-btn" aria-label="Close Popup Modal">&times;</button>
@@ -159,6 +173,7 @@
                 </div>
             </div>
 
+            <!--Memory modal-->
             <div id="memory-modal" class="modal">
                 <div class="modal-content">
                     <button type="button" class="close-btn" aria-label="Close Popup Modal">&times;</button>
@@ -169,6 +184,7 @@
                 </div>
             </div>
 
+            <!--Background modal-->
             <div id="background-modal" class="modal">
                 <div class="modal-content">
                     <button type="button" class="close-btn" aria-label="Background Modal">&times;</button>
@@ -191,11 +207,13 @@
             
         </div>
 
+        <!--Instruction message-->
         <p class="submessage">What do you want to see first?
             <br>Click on an icon and enjoy!
         </p>
     </main>
 
+    <!--Footer section-->
     <footer>
         
         <div class="left-footer">
@@ -207,6 +225,8 @@
             <p>Tanya Trampp</p>
             <p>Last Modified: <span id="date-modified">Loading...</span></p>
         </div>
+
+        <!--Automatically populate the last modified date-->
         <script>
             let text = document.lastModified;
             document.getElementById("date-modified").innerHTML = text;

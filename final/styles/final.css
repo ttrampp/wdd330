@@ -5,7 +5,7 @@
     --color-three: #7FC29B;     /*Cambridge Blue*/
     --color-four: #B5EF8A;      /*Light Green*/
     --color-five: #D7F171;      /*Mindaro*/
-    --color-six: burlywood;
+    --color-six: #DEB887;     /*Burlywood*/
 }
 
 /*Basic Reset*/
@@ -29,7 +29,7 @@ body {
     height: 100%;
 }
 
-
+/*Header*/
 header h1 {
     margin: 0.5rem 0;
     font-size: 2rem;
@@ -51,6 +51,7 @@ header h1 {
     text-align: center;
 }
 
+/*Main*/
 main {
     padding: 2rem;
     width: 100%;
@@ -102,6 +103,7 @@ main {
     font-weight: bold;
 }
 
+/*Button*/
 button {
     background: none;
     border: none;
@@ -118,6 +120,7 @@ button img {
     height: 100px;
 }
 
+/*Modal*/
 #modal-container {
     margin-top: 2rem;
     width: 100%;
@@ -211,6 +214,7 @@ footer {
     text-align: right;
 }
 
+/*Module specific styling*/
 /*WORD*/
 #play-audio {
     background-color: var(--color-four);
@@ -232,10 +236,10 @@ footer {
 
 /*MEMORY MATCH*/
 .game-board {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    justify-content: center;
+    justify-items: center;
     margin-top: 20px;
 }
 
@@ -257,7 +261,7 @@ footer {
 }
 
 #play-again-btn {
-    background-color: var(--color-one);
+    background-color: var(--color-five);
     color: black;
     font-size: 1.2rem;
     font-weight: bold;
@@ -386,6 +390,7 @@ body {
     font-weight: bold;
 }
 
+/*Responsive design*/
 /*TABLET*/
 @media (max-width: 900px) {
 
@@ -405,9 +410,57 @@ body {
 /*MOBILE*/
 @media (max-width: 600px) {
 
-    .icon-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+    body {
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .modal {
+        position: fixed;
+        margin-top: 2%;
+        max-height: 96vh;
+        overflow-y: auto;
+        left: 50%;
+        transform:  translate(-50%, -50%);
+        z-index: 1000;
+    }
+
+    .modal::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .modal::-webkit-scrollbar-thumb {
+        background-color: var(--color-three);
+        border-radius: 4px;
+    }
+
+    .modal::-webkit-scrollbar-track {
+        background-color: var(--color-one);
+    }
+
+    .icon-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        justify-items: center;
+    }
+
+    .icon-grid-left, .icon-grid-right {
+        display: contents;
+    }
+
+    .icon-button {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--color-three);
+        border: 4px solid var(--color-two);
+        padding: 1rem;
+        border-radius: 12px;
+        height: 130px;
     }
 
     button img {
@@ -417,5 +470,16 @@ body {
 
     header h1 {
         font-size: 1.5rem;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+    }
+
+    .card {
+        width: 60px;
+        height: 80px;
+        
     }
 }

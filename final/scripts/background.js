@@ -18,11 +18,12 @@ function applySavedBackground() {
     }
 }
 
-//add event listeners to thumbnail images
+//initialize and display clickable background image thumbnails
 function initBackgroundSelector() {
     const container = document.querySelector(".background-options");
     container.innerHTML = "";
 
+    //loop through default images and create thumbnail elements
     backgrounds.forEach((src, index) => {
         const img =document.createElement("img");
         img.src = src;
@@ -38,7 +39,7 @@ function initBackgroundSelector() {
         container.appendChild(img);
     });
 
-    //check to see if custom background was saved
+    //check to see if custom background was saved, if sho show it as a thumbnail
     const savedCustom = localStorage.getItem("backgroundImage");
     const uploaded =  localStorage.getItem("customBackgroundUpload");
 
@@ -69,6 +70,7 @@ function initBackgroundReset() {
     }
 }
 
+//handle custom background image upload
 function initCustomBackgroundUpload() {
     const uploadInput = document.getElementById("upload-bg");
     const message = document.getElementById("upload-message");

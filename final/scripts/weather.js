@@ -1,12 +1,17 @@
 // index weather api
+
+//select key dom elements for weather display
 const currentTemp = document.querySelector('#current-temp');
 const weatherIcon = document.querySelector('#weather-icon');
 const captionDesc = document.querySelector('figcaption');
 
 const extras = document.getElementById("weather-extra")
 
+//openWeatherMap API endpoint with lat and long for Kirtland NM --to hide after grading
 const url = 'https://api.openweathermap.org/data/2.5/weather?lat=36.75082&lon=-108.36565&units=imperial&appid=f63f3c9b0e500e13346f9e9a881a061a';
 
+
+//fetch weather data from the api and trigger display function
 export async function fetchWeather() {
     try {
         const response = await fetch(url);
@@ -23,8 +28,11 @@ export async function fetchWeather() {
     }
 }
 
+//display weather data on the page
 function displayResults(data) {
+    //set the cureent temp with degree symbol
     currentTemp.innerHTML = `${data.main.temp}&deg;F`;
+    //build the weather icon and description
     const iconsrc = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
     let desc = data.weather[0].description;
     weatherIcon.setAttribute('src', iconsrc);
@@ -32,7 +40,7 @@ function displayResults(data) {
     weatherIcon.setAttribute('loading', 'lazy');
     captionDesc.textContent = `${desc}`;
 
-    //extra weather info
+    //extract extra weather info
     const feelsLike = `${data.main.feels_like}°F`;
     const tempMin = `${data.main.temp_min}°F`;
     const tempMax = `${data.main.temp_max}°F`;
@@ -45,7 +53,7 @@ function displayResults(data) {
     const sunrise = new Date(data.sys.sunrise * 1000).toLocaleTimeString();
     const sunset = new Date(data.sys.sunset * 1000).toLocaleTimeString();
 
-    //add content to extras section
+    //add extra weather info into the DOM
     if (extras) {
         extras.innerHTML = `
             <br>

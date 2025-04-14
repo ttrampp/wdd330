@@ -1,3 +1,4 @@
+//API endpoint to get a new shuffled deck of cards
 const memoryUrl = "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
 
 //get a reference to the game board element in html

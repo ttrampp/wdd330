@@ -17,8 +17,8 @@ This web application offers a modular dashboard with interactive pop-ups, animat
     Displays current weather data using the OpenWeatherMap API.
 
 --**Learn a New Word**
-    Fetches a new word when page is refreshed. 
-    Additionally, if available from the API, it will also fetch a definition, part-of-speech, and pronunciation.
+    Fetches a new word, definition, and part-of-speech when page is refreshed. 
+    Additionally, if available from the API, it will also fetch the pronunciation.
     This is using the Random Word API.
 
 --**Scripture Recipe**
@@ -48,7 +48,7 @@ This web application offers a modular dashboard with interactive pop-ups, animat
 --**main.js**           -- Modal system, button animation, and feature initialization.
 --**background.js**     -- Background selector logic & localStorage persistence.
 --**weather.js**        -- Fetch and display current weather info.
---**word.js**           -- Fetch a random word, and if available the definition, part-of-speech, and pronunciation.
+--**word.js**           -- Fetch a random word, definition, part-of-speech, and if available the pronunciation.
 --**scripture.js**      -- Fetch a random scripture from the Book of Mormon.
 --**news.js**           -- Load trending news headlines, diplays external links to news articles.
 --**recipe.js**         -- Load and display a random recipe, instructions, image, and external link. 

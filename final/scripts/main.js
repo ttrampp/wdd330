@@ -1,3 +1,16 @@
+// Set the current year in the footer
+export function setupFooterAndNavbar() {
+    const currentYear = new Date().getFullYear();
+    document.getElementById('currentyear').textContent = currentYear;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const lastModifiedElement = document.getElementById("date-modified");
+        if (lastModifiedElement) {
+            lastModifiedElement.textContent = document.lastModified;
+        }
+    });
+}
+
 import {fetchWeather} from "./weather.js";
 import {fetchWordOfTheDay} from "./word.js";
 import {fetchScripture} from "./scripture.js";

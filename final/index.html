@@ -105,8 +105,6 @@
                         <p><strong>Part of Speech: </strong> <span id="part-of-speech"></span></p>
                         <p><button type="button" id="play-audio">🔈Play pronunciation</button></p>
                         <audio id="pronunciation-audio"></audio>
-                        <br><p>Note: Not all words have definitions or parts of speech available.</p>
-                        <p>Please try for another word.</p>
                     </div>
                 </div>
             </div>
@@ -199,7 +197,20 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Start Your Day Your Way</p>
+        
+        <div class="left-footer">
+            <p>Start Your Day Your Way</p>
+            <p>WDD330 Final Project</p>
+        </div>
+
+        <div class="right-footer">      
+            <p>Tanya Trampp</p>
+            <p>Last Modified: <span id="date-modified">Loading...</span></p>
+        </div>
+        <script>
+            let text = document.lastModified;
+            document.getElementById("date-modified").innerHTML = text;
+        </script>
     </footer>
 
 </body>
